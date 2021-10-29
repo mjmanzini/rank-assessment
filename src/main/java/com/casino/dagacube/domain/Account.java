@@ -4,13 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.UUID;
+import java.sql.Timestamp;
 
-@Entity(name="ACCOUNT")
 @Getter
 @Setter
+@Entity(name="ACCOUNT")
 public class Account {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     @OneToOne(fetch = FetchType.LAZY)
@@ -19,5 +20,9 @@ public class Account {
     @Column
     private double balance;
     @Column
-    private UUID transactionId;
+    private String transactionId;
+    @Column
+    private Timestamp createdDate;
+    @Column
+    private Timestamp modifiedDate;
 }

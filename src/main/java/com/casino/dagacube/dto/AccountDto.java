@@ -3,15 +3,13 @@ package com.casino.dagacube.dto;
 import com.casino.dagacube.domain.Account;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.UUID;
-
 @Getter
 @Setter
 public class AccountDto {
     private Long id;
     private PlayerDto playerDto;
     private double balance;
-    private UUID transactionId;
+    private String transactionId;
 
     public static AccountDto toDto(Account account) {
         AccountDto accountDto = new AccountDto();
